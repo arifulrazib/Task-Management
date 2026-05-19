@@ -53,18 +53,6 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="m-3 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-4 text-white relative overflow-hidden">
-        <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10" />
-        <div className="absolute -right-12 -bottom-10 h-32 w-32 rounded-full bg-white/5" />
-        <div className="relative">
-          <div className="text-sm font-semibold">Upgrade to Premium</div>
-          <p className="mt-1 text-xs text-white/80 leading-relaxed">Unlock team analytics, AI scheduling, and unlimited projects.</p>
-          <button className="mt-3 inline-flex items-center justify-center rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-brand-700 hover:bg-white/95">
-            See plans
-          </button>
-        </div>
-      </div>
-
       <div className="border-t border-ink-100 px-3 py-3">
         <NavLink to="/profile" className="flex items-center gap-2 rounded-xl px-2 py-2 text-sm text-ink-700 hover:bg-ink-100">
           <Settings className="h-[18px] w-[18px] text-ink-500" />
