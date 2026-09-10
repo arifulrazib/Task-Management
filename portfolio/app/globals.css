@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #181b1f;
+  --bg-secondary: #1d2126;
+  --card: #20252a;
+  --accent: #00e5a0;
+  --ink: #f2f4f5;
+  --ink-secondary: #a4a9ae;
+  --ink-muted: #70767d;
+  --line: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(0, 229, 160, 0.28);
+  color: #ffffff;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Custom scrollbar (desktop) */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2c333a;
+    border-radius: 10px;
+    border: 2px solid var(--bg);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a424b;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-accent;
+  }
+
+  .section-label {
+    @apply text-xs font-medium uppercase tracking-[0.2em] text-ink-muted;
+  }
+
+  .surface {
+    @apply rounded-3xl border border-line bg-bg-card;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-[#06251c] hover:bg-[#3cf0b8];
+  }
+
+  .btn-ghost {
+    @apply btn border border-line text-ink hover:border-accent/60 hover:text-accent;
+  }
+}
+
+/* Background grid texture */
+.grid-texture {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Radial glow helper */
+.accent-glow {
+  background: radial-gradient(circle at center, rgba(0, 229, 160, 0.22), transparent 70%);
+}
+
+/* Custom cursor: hide native cursor only on fine pointers */
+@media (pointer: fine) {
+  .cursor-none-desktop,
+  .cursor-none-desktop * {
+    cursor: none;
+  }
+}
+
+/* Reduced motion: neutralise transforms/animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
