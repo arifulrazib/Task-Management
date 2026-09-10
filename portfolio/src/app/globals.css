@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #161b1d;
+  color: #e6edef;
+}
+
+/* Subtle grid glow behind the whole page */
+.bg-hero-glow {
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(47, 227, 154, 0.08), transparent 60%),
+    radial-gradient(50rem 40rem at -10% 20%, rgba(47, 227, 154, 0.05), transparent 55%);
+}
+
+/* Nicer, thinner scrollbar on the dark theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #161b1d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c3438;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a444a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
