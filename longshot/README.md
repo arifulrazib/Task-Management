@@ -1,4 +1,4 @@
-# Longshot UI research
+# Longshot
 
 Desktop (1440x900) design boards for Longshot Target Studio.
 
