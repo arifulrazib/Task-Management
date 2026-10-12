@@ -323,6 +323,36 @@
       "w": 1440,
       "h": 900,
       "title": "Choose & Combine v4 (8 of 8 selected)"
+    },
+    "ChoosingV4Empty.dc.html": {
+      "x": 0,
+      "y": 30900,
+      "w": 1440,
+      "h": 900,
+      "title": "Choose & Combine v4 (nothing selected, 0 of 8)"
+    },
+    "ChoosingV4Play.dc.html": {
+      "x": 1520,
+      "y": 30900,
+      "w": 1440,
+      "h": 900,
+      "title": "Choose & Combine v4 (prototype: drag size slider, click to select)",
+      "is_interactive": true
+    },
+    "ChoosingV4Drag.dc.html": {
+      "x": 0,
+      "y": 31920,
+      "w": 1440,
+      "h": 900,
+      "title": "Choose & Combine v4 (prototype: drag a tile into the panel)",
+      "is_interactive": true
+    },
+    "ChoosingV5.dc.html": {
+      "x": 0,
+      "y": 32940,
+      "w": 1440,
+      "h": 900,
+      "title": "Choose & Combine v5 (gallery-style library)"
     }
   },
   "createdOnFiles": {
@@ -461,6 +491,30 @@
       "kind": "title1",
       "maxW": 2960,
       "w": 240
+    },
+    "t16": {
+      "x": 0,
+      "y": 30600,
+      "text": "Choose & Combine v4: nothing selected",
+      "kind": "title1",
+      "maxW": 2960,
+      "w": 240
+    },
+    "t17": {
+      "x": 0,
+      "y": 31620,
+      "text": "Choose & Combine v4: drag to select",
+      "kind": "title1",
+      "maxW": 2960,
+      "w": 240
+    },
+    "t18": {
+      "x": 0,
+      "y": 32640,
+      "text": "Choose & Combine v5: gallery-style library",
+      "kind": "title1",
+      "maxW": 2960,
+      "w": 240
     }
   },
   "order": [
@@ -509,7 +563,11 @@
     "ChoosingV3.dc.html",
     "ChoosingV3Cap.dc.html",
     "ChoosingV4.dc.html",
-    "ChoosingV4Cap.dc.html"
+    "ChoosingV4Cap.dc.html",
+    "ChoosingV4Empty.dc.html",
+    "ChoosingV4Play.dc.html",
+    "ChoosingV4Drag.dc.html",
+    "ChoosingV5.dc.html"
   ],
   "pages": [],
   "title": "Target Studio Desktop"

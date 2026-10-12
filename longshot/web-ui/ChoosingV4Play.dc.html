@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Choose and Combine v4 prototype</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+button,input{font-family:inherit}
+.tile .chk{opacity:0}
+.tile:hover .chk{opacity:1}
+.tile:hover .shade{opacity:1}
+.shade{opacity:0}
+.scroll::-webkit-scrollbar{width:8px}
+.scroll::-webkit-scrollbar-thumb{background:#2c3b4d;border-radius:4px}
+input[type=range].size{accent-color:#c6d0dc;width:96px;margin:0;cursor:pointer}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; display: flex; background: #121b26; color: #ffffff; font-family: 'Inter', system-ui, sans-serif; overflow: hidden">
+
+<nav aria-label="Primary" style="width: 72px; flex-shrink: 0; box-sizing: border-box; background: #0e1620; border-right: 1px solid #223142; display: flex; flex-direction: column; align-items: center; padding: 16px 0; gap: 8px">
+<sc-for list="{{nav}}" as="n" hint-placeholder-count="5">
+<button aria-label="{{n.label}}" title="{{n.label}}" style="{{n.style}}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{n.color}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{n.d}}"/></svg>
+</button>
+</sc-for>
+</nav>
+
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<header style="height: 72px; flex-shrink: 0; box-sizing: border-box; padding: 0 28px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid #223142">
+<a href="Main.dc.html" aria-label="Back to Home" style="width: 40px; height: 40px; border-radius: 50%; background: #1a2635; display: flex; align-items: center; justify-content: center; text-decoration: none">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+</a>
+<div>
+<div style="font-size: 12px; color: #8d9aab">Home / Target Studio</div>
+<h1 style="margin: 2px 0 0; font-size: 20px; font-weight: 700">Choose &amp; Combine</h1>
+</div>
+</header>
+
+<div style="flex: 1; min-height: 0; display: flex">
+
+<aside aria-label="Library" style="width: 220px; flex-shrink: 0; box-sizing: border-box; padding: 20px 14px; border-right: 1px solid #223142; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #8d9aab; padding: 0 10px 6px">LIBRARY</div>
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+<button style="{{f.style}}">
+<span>{{f.label}}</span>
+<span style="font-size: 12px; color: #8d9aab">{{f.count}}</span>
+</button>
+</sc-for>
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #8d9aab; padding: 22px 10px 6px">ADD FROM</div>
+<button style="display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 12px; border-radius: 10px; border: 0; background: transparent; color: #ffffff; font-size: 14px; font-weight: 500; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d9aab" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+Camera
+</button>
+</aside>
+
+<section aria-label="Media" style="position: relative; flex: 1; min-width: 0; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="flex-shrink: 0; box-sizing: border-box; padding: 16px 24px 12px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid #223142">
+<label style="display: flex; align-items: center; gap: 8px; width: 260px; height: 36px; box-sizing: border-box; padding: 0 12px; border-radius: 10px; background: #1a2635; border: 1px solid #2c3b4d">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d9aab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+<input type="search" placeholder="Search" aria-label="Search media" style="flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: #ffffff; font-size: 13px">
+</label>
+<button style="display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid #2c3b4d; background: transparent; color: #c6d0dc; font-size: 13px; font-weight: 600; cursor: pointer">
+Newest first
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8d9aab" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<div style="flex: 1"></div>
+<div style="display: flex; align-items: center; gap: 8px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d9aab" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="9.5" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><rect x="16" y="9.5" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><rect x="9.5" y="16" width="5" height="5" rx="1"/><rect x="16" y="16" width="5" height="5" rx="1"/></svg>
+<input class="size" type="range" min="1" max="5" step="1" value="{{sizeValue}}" onInput="{{onSize}}" aria-label="Thumbnail size" title="Thumbnail size">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d9aab" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+</div>
+<button style="display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border-radius: 999px; border: 0; background: #ffffff; color: #121b26; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; cursor: pointer">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#121b26" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>
+IMPORT
+</button>
+</div>
+
+<div class="scroll" style="flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; box-sizing: border-box; padding: 0 24px 24px">
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+<div role="group" aria-label="{{g.title}}">
+<h2 style="margin: 0; padding: 18px 0 12px; font-size: 13px; font-weight: 600; color: #c6d0dc">{{g.title}} <span style="color: #8d9aab; font-weight: 500">· {{g.count}}</span></h2>
+<div role="listbox" aria-label="{{g.title}}" aria-multiselectable="true" style="{{gridStyle}}">
+<sc-for list="{{g.tiles}}" as="t" hint-placeholder-count="12">
+<div class="tile" role="option" aria-selected="{{t.ariaSel}}" style="{{t.wrap}}">
+<button aria-label="{{t.label}}" title="Click to select" onClick="{{t.toggle}}" style="position: absolute; inset: 0; border: 0; padding: 0; background: none; cursor: pointer; border-radius: inherit; overflow: hidden">
+<svg viewBox="0 0 100 100" width="100%" height="100%" style="display: block"><rect width="100" height="100" fill="{{t.bg}}"/><circle cx="50" cy="50" r="40" fill="none" stroke="{{t.ring}}" stroke-width="1.4"/><circle cx="50" cy="50" r="28" fill="none" stroke="{{t.ring}}" stroke-width="1.4"/><circle cx="50" cy="50" r="16" fill="none" stroke="{{t.ring}}" stroke-width="1.4"/><circle cx="50" cy="50" r="7" fill="{{t.center}}"/><circle cx="{{t.dx}}" cy="{{t.dy}}" r="2.6" fill="{{t.dot}}"/></svg>
+</button>
+<span class="shade" style="position: absolute; inset: 0; border-radius: inherit; background: rgba(255, 255, 255, 0.08); pointer-events: none"></span>
+<sc-if value="{{t.selected}}" hint-placeholder-val="{{ false }}">
+<span style="{{badgeStyle}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+</sc-if>
+<sc-if value="{{t.showCheckbox}}" hint-placeholder-val="{{ true }}">
+<span class="chk" style="{{checkboxStyle}}"></span>
+</sc-if>
+<sc-if value="{{t.srcComputer}}" hint-placeholder-val="{{ false }}">
+<span title="From computer" style="position: absolute; right: 6px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: rgba(8, 12, 18, 0.85); display: flex; align-items: center; justify-content: center; pointer-events: none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#c6d0dc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v11H3zM8 20h8M12 16v4"/></svg></span>
+</sc-if>
+<sc-if value="{{t.srcCamera}}" hint-placeholder-val="{{ false }}">
+<span title="From camera" style="position: absolute; right: 6px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: rgba(8, 12, 18, 0.85); display: flex; align-items: center; justify-content: center; pointer-events: none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#c6d0dc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></span>
+</sc-if>
+<sc-if value="{{t.hasMarkers}}" hint-placeholder-val="{{ false }}">
+<span title="Has shot markers" style="position: absolute; left: 6px; bottom: 6px; display: flex; align-items: center; padding: 4px; border-radius: 6px; background: rgba(8, 12, 18, 0.85); pointer-events: none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ff8a5c" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/></svg></span>
+</sc-if>
+<sc-if value="{{t.video}}" hint-placeholder-val="{{ false }}">
+<span style="position: absolute; right: 6px; bottom: 6px; padding: 2px 6px; border-radius: 6px; background: rgba(8, 12, 18, 0.85); font-size: 11px; font-weight: 500; pointer-events: none">{{t.duration}}</span>
+</sc-if>
+<sc-if value="{{t.tip}}" hint-placeholder-val="{{ false }}">
+<span role="tooltip" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3; white-space: nowrap; padding: 6px 10px; border-radius: 8px; background: #243446; border: 1px solid #3a4c61; font-size: 12px; font-weight: 600; pointer-events: none; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5)">Maximum 8 selected</span>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<aside aria-label="Selection" style="width: 340px; flex-shrink: 0; box-sizing: border-box; border-left: 1px solid #223142; background: #0e1620; display: flex; flex-direction: column">
+<div style="flex-shrink: 0; box-sizing: border-box; padding: 16px 20px 14px; display: flex; align-items: flex-start; justify-content: space-between">
+<div>
+<h2 style="margin: 0; font-size: 16px; font-weight: 700">Selection</h2>
+<div style="font-size: 12px; color: #8d9aab; margin-top: 1px">{{selCount}} of 8</div>
+<div style="display: flex; gap: 3px; margin-top: 8px" role="img" aria-label="{{selCount}} of 8 slots used">
+<sc-for list="{{slots}}" as="s" hint-placeholder-count="8">
+<span style="width: 14px; height: 5px; border-radius: 2px; background: {{s.c}}"></span>
+</sc-for>
+</div>
+</div>
+<button onClick="{{clearAll}}" aria-disabled="{{clearDisabled}}" style="{{clearStyle}}">Clear all</button>
+</div>
+
+<div style="flex: 1; min-height: 0; box-sizing: border-box; padding: 0 16px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto">
+<sc-if value="{{isEmpty}}" hint-placeholder-val="{{ false }}">
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 0 28px; color: #8d9aab; font-size: 13px; line-height: 1.5">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#5d6c7e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/></svg>
+<div>Select photos or videos to combine</div>
+</div>
+</sc-if>
+<sc-for list="{{tray}}" as="r" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 10px; height: 64px; box-sizing: border-box; padding: 0 10px 0 6px; border-radius: 12px; background: #1a2635; flex-shrink: 0">
+<span aria-hidden="true" style="width: 16px; display: flex; justify-content: center; color: #5d6c7e"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor"><circle cx="3" cy="3" r="1.3"/><circle cx="9" cy="3" r="1.3"/><circle cx="3" cy="8" r="1.3"/><circle cx="9" cy="8" r="1.3"/><circle cx="3" cy="13" r="1.3"/><circle cx="9" cy="13" r="1.3"/></svg></span>
+<div style="position: relative; width: 44px; height: 44px; border-radius: 8px; overflow: hidden; flex-shrink: 0">
+<svg viewBox="0 0 100 100" width="100%" height="100%" style="display: block"><rect width="100" height="100" fill="{{r.bg}}"/><circle cx="50" cy="50" r="40" fill="none" stroke="{{r.ring}}" stroke-width="3"/><circle cx="50" cy="50" r="22" fill="none" stroke="{{r.ring}}" stroke-width="3"/><circle cx="50" cy="50" r="9" fill="{{r.center}}"/></svg>
+</div>
+<div style="flex: 1; min-width: 0">
+<div style="font-size: 13px; font-weight: 600">{{r.name}}</div>
+<div style="font-size: 12px; color: #8d9aab; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{r.meta}}</div>
+</div>
+<span style="width: 22px; height: 22px; border-radius: 50%; background: #ff5a1f; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{r.order}}</span>
+<button aria-label="Deselect {{r.name}}" title="Deselect" onClick="{{r.remove}}" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 8px; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d9aab" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+</button>
+</div>
+</sc-for>
+</div>
+
+<div style="flex-shrink: 0; box-sizing: border-box; padding: 16px; border-top: 1px solid #223142; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #8d9aab"><span>Select up to 8</span><span>Drag to reorder</span></div>
+<sc-if value="{{hasSel}}" hint-placeholder-val="{{ true }}">
+<a href="ReviewConfirm.dc.html" style="height: 48px; border-radius: 12px; background: #ff5a1f; color: #ffffff; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; display: flex; align-items: center; justify-content: center">Review {{selCount}} items</a>
+</sc-if>
+<sc-if value="{{isEmpty}}" hint-placeholder-val="{{ false }}">
+<button aria-disabled="true" style="height: 48px; border-radius: 12px; border: 0; background: #2a3645; color: #7d8a9a; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; cursor: not-allowed">Review</button>
+</sc-if>
+</div>
+</aside>
+
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { size: 3, sel: ['i0', 'i1', 't1', 't3'], tipId: '' };
+  }
+  renderVals() {
+    const { size, sel, tipId } = this.state;
+    const colsBy = { 1: 10, 2: 8, 3: 6, 4: 5, 5: 4 };
+    const cols = colsBy[size] || 6;
+    const compact = cols >= 8;
+    const full = sel.length >= 8;
+    const btn = (a) => 'width: 48px; height: 48px; border-radius: 12px; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; background: ' + (a ? '#1f2d3d' : 'transparent');
+    const items = [
+      { label: 'Home', d: 'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', a: false },
+      { label: 'Camera', d: 'M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', a: false },
+      { label: 'Target Studio', d: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 12h.01', a: true },
+      { label: 'Library', d: 'M4 5h16v14H4zM4 15l4-4 5 5 3-3 4 4M9 9h.01', a: false },
+      { label: 'Settings', d: 'M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4', a: false }
+    ];
+    const fl = (a) => 'display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 0 12px; border-radius: 10px; border: 0; cursor: pointer; font-size: 14px; font-weight: ' + (a ? '600' : '500') + '; color: #ffffff; background: ' + (a ? '#1f2d3d' : 'transparent');
+    const filters = [
+      { label: 'All', count: '48', a: true },
+      { label: 'Images', count: '31', a: false },
+      { label: 'Videos', count: '17', a: false },
+      { label: 'Favorites', count: '6', a: false }
+    ].map((f) => ({ label: f.label, count: f.count, style: fl(f.a) }));
+    const bases = [
+      { bg: '#c9b79a', ring: '#7a6a52', center: '#3b3226', dot: '#00000000', dx: 50, dy: 50 },
+      { bg: '#aeb9c6', ring: '#5a6675', center: '#1c232c', dot: '#00000000', dx: 50, dy: 50 },
+      { bg: '#10151b', ring: '#e8eef5', center: '#e8eef5', dot: '#00000000', dx: 50, dy: 50, v: '0:10' },
+      { bg: '#d8d2c4', ring: '#3d3a33', center: '#d94a3a', dot: '#1c232c', dx: 36, dy: 58 },
+      { bg: '#f1efe9', ring: '#555555', center: '#d94a3a', dot: '#00000000', dx: 50, dy: 50 },
+      { bg: '#2a3039', ring: '#c4ccd6', center: '#d94a3a', dot: '#ffffff', dx: 62, dy: 40, v: '0:10' }
+    ];
+    const markers = { i0: 3, i1: 4, i2: 1, t1: 2, t3: 3, t4: 2, t6: 1 };
+    const toggle = (id) => () => {
+      const cur = this.state.sel;
+      if (cur.indexOf(id) >= 0) {
+        this.setState({ sel: cur.filter((x) => x !== id), tipId: '' });
+      } else if (cur.length < 8) {
+        this.setState({ sel: cur.concat([id]), tipId: '' });
+      } else {
+        this.setState({ tipId: id });
+        setTimeout(() => this.setState({ tipId: '' }), 1600);
+      }
+    };
+    const all = {};
+    const mk = (id, name, base, extra) => {
+      const b = bases[base];
+      const order = sel.indexOf(id) + 1;
+      const selected = order > 0;
+      const dim = full && !selected;
+      const dur = extra.dur || b.v || '';
+      const mc = markers[id] || 0;
+      const t = {
+        id, name, bg: b.bg, ring: b.ring, center: b.center, dot: b.dot, dx: b.dx, dy: b.dy,
+        video: !!dur, duration: dur, order, selected,
+        ariaSel: selected ? 'true' : 'false',
+        label: (selected ? 'Deselect ' : 'Select ') + name,
+        wrap: 'position: relative; aspect-ratio: 1 / 1; border-radius: ' + (compact ? '7px' : '10px') + '; background: #243446;' + (selected ? ' outline: 2px solid #ffffff; outline-offset: 2px;' : '') + (dim ? ' opacity: 0.4;' : ''),
+        showCheckbox: !selected && !full,
+        srcComputer: !compact && extra.src === 'Computer',
+        srcCamera: !compact && !!extra.src && extra.src !== 'Computer',
+        hasMarkers: !compact && mc > 0,
+        tip: tipId === id,
+        toggle: toggle(id),
+        meta: (dur ? 'Video · ' + dur : 'Photo') + (extra.src ? ' · ' + extra.src : '') + (mc > 0 ? ' · ' + mc + (mc === 1 ? ' marker' : ' markers') : ''),
+        remove: toggle(id)
+      };
+      all[id] = t;
+      return t;
+    };
+    const today = [
+      mk('i0', 'IMG_2041', 2, { dur: '0:38', src: 'Computer' }),
+      mk('i1', 'IMG_2044', 4, { src: 'Computer' }),
+      mk('i2', 'CAM1_0607', 3, { src: 'Camera 1' })
+    ];
+    for (let i = 0; i < 9; i++) today.push(mk('t' + i, 'IMG_' + (2050 + i), i % 6, {}));
+    const yesterday = [];
+    for (let i = 0; i < 9; i++) yesterday.push(mk('y' + i, 'IMG_' + (2040 - i), (i + 2) % 6, {}));
+    const earlier = [];
+    for (let i = 0; i < 27; i++) earlier.push(mk('e' + i, 'IMG_' + (2030 - i), (i + 4) % 6, {}));
+    const groups = [
+      { title: 'Today', count: today.length, tiles: today },
+      { title: 'Yesterday', count: yesterday.length, tiles: yesterday },
+      { title: '10 Aug 2026', count: earlier.length, tiles: earlier }
+    ];
+    const tray = sel.map((id, i) => ({
+      name: all[id].name, bg: all[id].bg, ring: all[id].ring, center: all[id].center,
+      meta: all[id].meta, order: i + 1, remove: toggle(id)
+    }));
+    const slots = [];
+    for (let i = 0; i < 8; i++) slots.push({ c: i < sel.length ? '#ff5a1f' : '#2f4054' });
+    const empty = sel.length === 0;
+    const badge = compact ? 18 : 22;
+    return {
+      nav: items.map((i) => ({ label: i.label, d: i.d, color: i.a ? '#ff5a1f' : '#8d9aab', style: btn(i.a) })),
+      filters, groups, tray, slots,
+      selCount: sel.length,
+      isEmpty: empty,
+      hasSel: !empty,
+      sizeValue: String(size),
+      onSize: (e) => this.setState({ size: Number(e.target.value) }),
+      clearAll: () => this.setState({ sel: [], tipId: '' }),
+      clearDisabled: empty ? 'true' : 'false',
+      clearStyle: 'height: 32px; padding: 0 12px; border-radius: 8px; border: 1px solid #2c3b4d; background: transparent; font-size: 12px; font-weight: 600; ' + (empty ? 'color: #5d6c7e; opacity: 0.6; cursor: not-allowed;' : 'color: #c6d0dc; cursor: pointer;'),
+      gridStyle: 'display: grid; grid-template-columns: repeat(' + cols + ', minmax(0, 1fr)); gap: ' + (compact ? '8px' : '10px') + '; padding: 4px; margin: -4px',
+      badgeStyle: 'position: absolute; left: 6px; top: 6px; width: ' + badge + 'px; height: ' + badge + 'px; border-radius: 50%; background: #ff5a1f; display: flex; align-items: center; justify-content: center; pointer-events: none',
+      checkboxStyle: 'position: absolute; left: 6px; top: 6px; width: ' + badge + 'px; height: ' + badge + 'px; box-sizing: border-box; border-radius: 50%; border: 2px solid #ffffff; background: rgba(14, 22, 32, 0.5); pointer-events: none'
+    };
+  }
+}
+</script>
+</body>
+</html>
