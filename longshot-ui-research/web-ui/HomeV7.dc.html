@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home entry V7</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; display: flex; background: #121b26; color: #ffffff; font-family: 'Inter', system-ui, sans-serif; overflow: hidden">
+
+<nav aria-label="Primary" style="width: 72px; flex-shrink: 0; box-sizing: border-box; background: #0e1620; border-right: 1px solid #223142; display: flex; flex-direction: column; align-items: center; padding: 16px 0; gap: 8px">
+<sc-for list="{{nav}}" as="n" hint-placeholder-count="5">
+<button aria-label="{{n.label}}" title="{{n.label}}" style="{{n.style}}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{n.color}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{n.d}}"/></svg>
+</button>
+</sc-for>
+</nav>
+
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<header style="height: 64px; flex-shrink: 0; box-sizing: border-box; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #223142">
+<img src="/_blob/a0585cbe772a5a5530d6307a2c67f8d5" alt="Longshot Target Camera" style="height: 36px; width: auto; display: block">
+<div style="display: flex; align-items: center; gap: 10px; background: #1a2635; border-radius: 10px; padding: 8px 14px; font-size: 13px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d9aab" stroke-width="1.8" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0M12 19.5h.01"/></svg>
+<sc-if value="{{connected}}" hint-placeholder-val="{{ true }}">
+<span style="font-weight: 600">MARKS-1234</span>
+<span style="width: 8px; height: 8px; border-radius: 50%; background: #3ddc84"></span>
+<span style="color: #8d9aab">Connected</span>
+</sc-if>
+<sc-if value="{{notConnected}}" hint-placeholder-val="{{ false }}">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: #5d6c7e"></span>
+<span style="color: #c6d0dc">Not connected</span>
+</sc-if>
+</div>
+</header>
+
+<main style="flex: 1; min-height: 0; box-sizing: border-box; padding: 20px 32px; display: flex; flex-direction: column; gap: 18px; overflow: hidden">
+
+<section style="flex-shrink: 0; display: flex; box-sizing: border-box; border-radius: 18px; background: #151f2c; border: 1px solid #223142; overflow: hidden">
+
+<div style="flex: 1.75; min-width: 0; box-sizing: border-box; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; height: 44px">
+<div>
+<h2 id="cam" style="margin: 0; font-size: 20px; font-weight: 700">Cameras</h2>
+<div style="font-size: 13px; color: #8d9aab; margin-top: 2px">{{subtitle}}</div>
+</div>
+<div style="display: flex; align-items: center; gap: 10px">
+<sc-if value="{{showSearch}}" hint-placeholder-val="{{ false }}">
+<label style="position: relative; display: block; width: 230px">
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search cameras</span>
+<svg style="position: absolute; left: 12px; top: 12px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8d9aab" stroke-width="2" stroke-linecap="round"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-5-5"/></svg>
+<input type="search" placeholder="Search cameras" style="width: 100%; height: 40px; box-sizing: border-box; padding: 0 12px 0 36px; border-radius: 10px; border: 1px solid #2c3b4d; background: #1a2635; color: #ffffff; font-family: inherit; font-size: 14px">
+</label>
+</sc-if>
+<button aria-label="Refresh cameras" title="Refresh cameras" style="width: 40px; height: 40px; border-radius: 10px; border: 0; background: #243446; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-15.5 6.2M3 12A9 9 0 0 1 18.5 5.8M18.5 2v4h-4M5.5 22v-4h4"/></svg>
+</button>
+</div>
+</div>
+
+<div style="position: relative; height: 252px; overflow: hidden">
+<sc-if value="{{hasCams}}" hint-placeholder-val="{{ true }}">
+<div role="list" aria-labelledby="cam" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-right: 14px">
+<sc-for list="{{cams}}" as="c" hint-placeholder-count="9">
+<a role="listitem" href="Live.dc.html" title="{{c.title}}" style="{{c.cardStyle}}">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{c.iconColor}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+<span style="width: 8px; height: 8px; border-radius: 50%; background: {{c.dot}}"></span>
+</div>
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px">
+<div style="min-width: 0">
+<div style="{{c.nameStyle}}">{{c.name}}</div>
+<div style="font-size: 12px; color: #8d9aab; margin-top: 1px">{{c.tag}}</div>
+</div>
+<sc-if value="{{c.low}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 11px; font-weight: 600; color: #ff8a5c; white-space: nowrap">Low battery</span>
+</sc-if>
+</div>
+</a>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{noCams}}" hint-placeholder-val="{{ false }}">
+<div style="height: 100%; box-sizing: border-box; border-radius: 14px; border: 1px dashed #3a4c61; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#5d6c7e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+<div style="font-size: 16px; font-weight: 700">No cameras found</div>
+<div style="font-size: 13px; line-height: 1.5; color: #a9b5c4; max-width: 400px">Power on your camera, connect this computer to the Longshot Wi-Fi network, then refresh.</div>
+</div>
+</sc-if>
+<sc-if value="{{scrolls}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(180deg, rgba(21, 31, 44, 0), #151f2c); pointer-events: none"></div>
+<div aria-hidden="true" style="position: absolute; right: 0; top: 0; bottom: 0; width: 4px; border-radius: 2px; background: #223142"><div style="width: 4px; height: 150px; border-radius: 2px; background: #5d6c7e"></div></div>
+</sc-if>
+</div>
+</div>
+
+<div aria-hidden="true" style="width: 1px; background: #223142; margin: 18px 0"></div>
+
+<div style="flex: 1; min-width: 0; box-sizing: border-box; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; height: 44px">
+<div>
+<h2 style="margin: 0; font-size: 20px; font-weight: 700">{{panelTitle}}</h2>
+<div style="font-size: 13px; color: #8d9aab; margin-top: 2px">{{panelSub}}</div>
+</div>
+<button aria-label="Camera settings" title="Camera settings" style="width: 40px; height: 40px; border-radius: 10px; border: 0; background: #243446; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"/></svg>
+</button>
+</div>
+
+<div style="height: 252px; box-sizing: border-box; border-radius: 14px; background: #1a2635; display: flex; flex-direction: column; overflow: hidden">
+<div style="flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center">
+<div style="{{deviceStyle}}">
+<div style="width: 38px; height: 38px; border-radius: 50%; background: #0c1015; border: 5px solid #444c56; box-sizing: border-box; margin: 14px auto 0"></div>
+<div style="width: 50px; height: 56px; border-radius: 8px; background: #3a4048; margin: 14px auto 0; display: flex; align-items: flex-end; justify-content: center"><span style="font-size: 6px; letter-spacing: 0.1em; color: #8d9aab; margin-bottom: 6px">MARKSMAN</span></div>
+</div>
+</div>
+<div style="display: flex; align-items: stretch; border-top: 1px solid #2c3b4d">
+<div style="flex: 1; box-sizing: border-box; padding: 12px 16px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #8d9aab">BATTERY</div>
+<div style="display: flex; align-items: center; gap: 10px; margin-top: 8px">
+<div style="display: flex; gap: 3px" role="img" aria-label="{{battLabel}}">
+<sc-for list="{{segs}}" as="s" hint-placeholder-count="5">
+<span style="width: 16px; height: 8px; border-radius: 2px; background: {{s.c}}"></span>
+</sc-for>
+</div>
+<span style="font-size: 16px; font-weight: 700; color: {{battTextColor}}">{{battText}}</span>
+</div>
+</div>
+<div aria-hidden="true" style="width: 1px; background: #2c3b4d"></div>
+<div style="flex: 1; box-sizing: border-box; padding: 12px 16px">
+<div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #8d9aab">SIGNAL</div>
+<div style="display: flex; align-items: center; gap: 10px; margin-top: 8px">
+<svg width="22" height="16" viewBox="0 0 22 16" role="img" aria-label="Signal {{sigText}}"><rect x="0" y="11" width="4" height="5" rx="1" fill="{{sg1}}"/><rect x="6" y="7" width="4" height="9" rx="1" fill="{{sg2}}"/><rect x="12" y="3" width="4" height="13" rx="1" fill="{{sg3}}"/><rect x="18" y="0" width="4" height="16" rx="1" fill="{{sg4}}"/></svg>
+<span style="font-size: 16px; font-weight: 700">{{sigText}}</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="{{studioSection}}">
+<svg aria-hidden="true" width="260" height="76" viewBox="0 0 260 76" style="position: absolute; right: 60px; top: 0" fill="none" stroke="#ff5a1f" stroke-opacity="0.18"><circle cx="130" cy="38" r="30"/><circle cx="130" cy="38" r="52"/><circle cx="130" cy="38" r="74"/></svg>
+<div style="position: relative; width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px; background: rgba(255, 90, 31, 0.16); display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 12h.01"/></svg>
+</div>
+<div style="position: relative; flex: 1; min-width: 0">
+<div style="font-size: 16px; font-weight: 700">Target Studio</div>
+<div style="font-size: 13px; color: #a9b5c4; margin-top: 2px">{{studioText}}</div>
+</div>
+<a href="Resume.dc.html" style="{{studioBtn}}">{{studioLabel}}</a>
+</section>
+
+<section aria-labelledby="tut" style="display: flex; flex-direction: column; gap: 10px; min-height: 0">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<h2 id="tut" style="margin: 0; font-size: 18px; font-weight: 700">Tutorials</h2>
+<button aria-label="Collapse tutorials" aria-expanded="true" style="width: 36px; height: 36px; border-radius: 10px; border: 0; background: #1a2635; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+</div>
+<div style="position: relative">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+<sc-for list="{{tuts}}" as="t" hint-placeholder-count="3">
+<div style="position: relative; height: 150px; border-radius: 14px; background: #0e1620; overflow: hidden">
+<img src="/_blob/b6e43e63a510f1d5d2f76831099c6e2f" alt="Clay Rhoden, founder of Longshot Cameras, standing in a grass field" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block">
+<button aria-label="Play tutorial" style="position: absolute; left: 50%; top: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, 0.92); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35)">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="#121b26"><path d="M8 5v14l11-7z"/></svg>
+</button>
+</div>
+</sc-for>
+</div>
+<button aria-label="Previous tutorials" style="position: absolute; left: -18px; top: 50%; width: 40px; height: 40px; margin-top: -20px; border-radius: 50%; border: 0; background: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#121b26" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+</button>
+<button aria-label="Next tutorials" style="position: absolute; right: -18px; top: 50%; width: 40px; height: 40px; margin-top: -20px; border-radius: 50%; border: 0; background: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#121b26" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+</button>
+</div>
+</section>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","default":"nine","options":["nine","twelve","offline","none"]},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const v = this.props.variant || 'nine';
+    const none = v === 'none';
+    const btn = (a) => 'width: 48px; height: 48px; border-radius: 12px; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; background: ' + (a ? '#1f2d3d' : 'transparent');
+    const items = [
+      { label: 'Home', d: 'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', a: true },
+      { label: 'Camera', d: 'M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', a: false },
+      { label: 'Target Studio', d: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 12h.01', a: false },
+      { label: 'Library', d: 'M4 5h16v14H4zM4 15l4-4 5 5 3-3 4 4M9 9h.01', a: false },
+      { label: 'Settings', d: 'M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4', a: false }
+    ];
+    const base = [
+      { name: 'Camera 1', tag: '100 yd', on: true, batt: 57, sig: 3 },
+      { name: 'Camera 2', tag: '200 yd', on: true, batt: 67, sig: 3 },
+      { name: 'Camera 3', tag: '300 yd', on: true, batt: 21, sig: 2 },
+      { name: 'Camera 4', tag: 'Lane 4', on: false, batt: 0, sig: 0 },
+      { name: 'Camera 5', tag: 'Lane 5', on: false, batt: 0, sig: 0 },
+      { name: 'Camera 6', tag: '400 yd', on: false, batt: 0, sig: 0 },
+      { name: 'Camera 7', tag: 'Lane 7', on: false, batt: 0, sig: 0 },
+      { name: 'Camera 8', tag: 'Lane 8', on: false, batt: 0, sig: 0 },
+      { name: 'Camera 9', tag: 'Lane 9', on: false, batt: 0, sig: 0 }
+    ];
+    let list = base.slice();
+    if (v === 'twelve') {
+      list = [
+        { name: 'Camera 1', tag: '100 yd', on: true, batt: 57, sig: 3 },
+        { name: 'Camera 2', tag: '100 yd', on: true, batt: 67, sig: 3 },
+        { name: 'Camera 3', tag: '200 yd', on: true, batt: 71, sig: 3 },
+        { name: 'Camera 4', tag: '200 yd', on: true, batt: 21, sig: 2 },
+        { name: 'Camera 5', tag: '300 yd', on: true, batt: 88, sig: 1 }
+      ];
+      for (let i = 6; i <= 12; i++) list.push({ name: 'Camera ' + i, tag: 'Lane ' + i, on: false, batt: 0, sig: 0 });
+    }
+    let activeName = 'Camera 1';
+    if (v === 'offline') activeName = 'Camera 4';
+    if (none) list = [];
+    const act = list.find((c) => c.name === activeName);
+    const ordered = act ? [act].concat(list.filter((c) => c !== act && c.on), list.filter((c) => c !== act && !c.on)) : list;
+    const cams = ordered.map((c) => {
+      const isAct = act && c === act;
+      const low = c.on && c.batt < 25;
+      return {
+        name: c.name, tag: c.tag, low,
+        title: c.name + ', ' + c.tag + ', ' + (c.on ? 'online' : 'not connected') + (low ? ', low battery' : '') + (isAct ? ', active' : ''),
+        dot: !c.on ? '#5d6c7e' : (low ? '#ff5a1f' : '#3ddc84'),
+        iconColor: c.on ? '#c6d0dc' : '#6b7a8d',
+        nameStyle: 'font-size: 14px; font-weight: 600; color: ' + (c.on ? '#ffffff' : '#9aa7b8'),
+        cardStyle: 'display: flex; flex-direction: column; justify-content: space-between; height: 80px; box-sizing: border-box; padding: 12px 14px; border-radius: 12px; color: inherit; text-decoration: none; background: ' + (isAct ? '#1f2d3d' : '#1a2635') + '; border: ' + (isAct ? '2px solid #ff5a1f' : '1px solid #2c3b4d') + (isAct ? '; padding: 11px 13px' : '')
+      };
+    });
+    const nOn = list.filter((c) => c.on).length;
+    const nOff = list.length - nOn;
+    const subtitle = none ? 'No cameras found' : nOn + ' online · ' + nOff + ' not connected';
+    const segsOn = act && act.on ? Math.ceil(act.batt / 20) : 0;
+    const lowAct = act && act.on && act.batt < 25;
+    const segs = [0, 1, 2, 3, 4].map((i) => ({ c: i < segsOn ? (lowAct ? '#ff5a1f' : '#3ddc84') : '#2f4054' }));
+    const sig = act && act.on ? act.sig : 0;
+    const sigNames = ['—', 'Weak', 'Good', 'Strong'];
+    const sigOn = (n) => (sig >= n ? '#ffffff' : '#3a4c61');
+    const actOnline = !!(act && act.on);
+    const studio = this.props.studio || 'default';
+    const primary = studio === 'primary';
+    const saved = studio === 'resume';
+    const studioSection = 'flex-shrink: 0; position: relative; display: flex; align-items: center; gap: 16px; box-sizing: border-box; padding: 0 20px; border-radius: 16px; overflow: hidden; ' + (primary
+      ? 'height: 92px; background: #1f2d3d; border: 2px solid #ff5a1f; box-shadow: 0 0 0 4px rgba(255, 90, 31, 0.14)'
+      : 'height: 76px; background: #1a2635; border: 1px solid rgba(255, 90, 31, 0.55)');
+    const studioBtn = 'position: relative; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 56px; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; ' + (primary ? 'background: #ff5a1f; color: #ffffff' : 'background: #ffffff; color: #121b26');
+    return {
+      nav: items.map((i) => ({ label: i.label, d: i.d, color: i.a ? '#ff5a1f' : '#8d9aab', style: btn(i.a) })),
+      connected: !none, notConnected: none,
+      subtitle, hasCams: !none, noCams: none,
+      cams,
+      scrolls: v === 'twelve',
+      showSearch: v === 'twelve',
+      panelTitle: none ? 'No device' : 'Marksman',
+      panelSub: none ? 'Not connected to a Longshot network' : (act ? act.name + ' · ' + act.tag + (actOnline ? '' : ' · Not connected') : ''),
+      deviceStyle: 'width: 92px; height: 190px; box-sizing: border-box; border-radius: 16px; background: #2b3138; border: 3px solid ' + (actOnline ? '#ff5a1f' : '#5d6c7e') + '; opacity: ' + (actOnline ? '1' : '0.55'),
+      segs,
+      battText: actOnline ? act.batt + '%' : '—',
+      battTextColor: lowAct ? '#ff8a5c' : '#ffffff',
+      battLabel: actOnline ? 'Battery ' + act.batt + ' percent' : 'Battery unknown',
+      sigText: sigNames[sig],
+      sg1: sigOn(1), sg2: sigOn(2), sg3: sigOn(3), sg4: sig >= 3 ? '#ffffff' : '#3a4c61',
+      studioSection, studioBtn,
+      studioText: saved ? 'Saved session · 4 items. Pick up where you left off.' : 'Pick from your library, measure shots without the camera.',
+      studioLabel: saved ? 'RESUME' : 'START',
+      tuts: [{}, {}, {}]
+    };
+  }
+}
+</script>
+</body>
+</html>

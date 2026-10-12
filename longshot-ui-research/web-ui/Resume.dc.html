@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume session</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; font-family: 'Inter', system-ui, sans-serif; color: #ffffff">
+<dc-import name="Choosing" hint-size="1440px,900px"></dc-import>
+<div style="position: absolute; inset: 0; background: rgba(6, 10, 16, 0.72)"></div>
+<div role="dialog" aria-modal="true" aria-labelledby="rt" style="position: absolute; left: 50%; top: 50%; width: 520px; margin: -190px 0 0 -260px; box-sizing: border-box; border-radius: 20px; background: #1a2635; border: 1px solid #2c3b4d; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5); padding: 28px">
+<div style="display: flex; align-items: flex-start; justify-content: space-between">
+<div>
+<h2 id="rt" style="margin: 0; font-size: 20px; font-weight: 700">Resume today's session?</h2>
+<div style="margin-top: 6px; font-size: 13px; color: #8d9aab">Started 2:14 PM · 4 items · 12 shot markers</div>
+</div>
+<button aria-label="Close and keep browsing (Esc)" style="width: 32px; height: 32px; border-radius: 8px; border: 0; background: #223142; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c6d0dc" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+</button>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 22px">
+<sc-for list="{{items}}" as="t" hint-placeholder-count="4">
+<div>
+<div style="aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden">
+<svg viewBox="0 0 100 100" width="100%" height="100%" style="display: block"><rect width="100" height="100" fill="{{t.bg}}"/><circle cx="50" cy="50" r="40" fill="none" stroke="{{t.ring}}" stroke-width="1.4"/><circle cx="50" cy="50" r="28" fill="none" stroke="{{t.ring}}" stroke-width="1.4"/><circle cx="50" cy="50" r="16" fill="none" stroke="{{t.ring}}" stroke-width="1.4"/><circle cx="50" cy="50" r="7" fill="{{t.center}}"/><circle cx="{{t.dx}}" cy="{{t.dy}}" r="2.6" fill="{{t.dot}}"/></svg>
+</div>
+<div style="margin-top: 8px; font-size: 12px; font-weight: 600">{{t.name}}</div>
+<div style="font-size: 11px; color: #8d9aab; margin-top: 1px">{{t.meta}}</div>
+</div>
+</sc-for>
+</div>
+
+<p style="margin: 20px 0 0; font-size: 13px; line-height: 1.5; color: #a9b5c4">Resume restores every source, the item order and your shot markers. Start new opens an empty selection and keeps this session until you add items.</p>
+
+<div style="display: flex; gap: 12px; margin-top: 22px">
+<a href="Cleared.dc.html" style="flex: 1; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #ffffff; color: #121b26; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-decoration: none">START NEW</a>
+<a href="Choosing.dc.html" style="flex: 1; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #ff5a1f; color: #ffffff; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.28)">RESUME</a>
+</div>
+<div style="margin-top: 14px; text-align: center; font-size: 12px; color: #8d9aab"><kbd style="font-family: inherit; background: #223142; border-radius: 5px; padding: 2px 6px; color: #c6d0dc">Esc</kbd> keep browsing · <kbd style="font-family: inherit; background: #223142; border-radius: 5px; padding: 2px 6px; color: #c6d0dc">Enter</kbd> resume</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      items: [
+        { name: 'IMG_2041', meta: 'Video · 0:38', bg: '#10151b', ring: '#e8eef5', center: '#e8eef5', dot: '#00000000', dx: 50, dy: 50 },
+        { name: 'IMG_2044', meta: 'Photo', bg: '#f1efe9', ring: '#555555', center: '#d94a3a', dot: '#00000000', dx: 50, dy: 50 },
+        { name: 'IMG_2051', meta: 'Photo', bg: '#aeb9c6', ring: '#5a6675', center: '#1c232c', dot: '#00000000', dx: 50, dy: 50 },
+        { name: 'IMG_2053', meta: 'Photo', bg: '#d8d2c4', ring: '#3d3a33', center: '#d94a3a', dot: '#1c232c', dx: 36, dy: 58 }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

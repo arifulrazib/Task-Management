@@ -1,0 +1,516 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Choosing.dc.html": {
+      "h": 900,
+      "title": "03 Choosing with selection",
+      "w": 1440,
+      "x": 0,
+      "y": 1020
+    },
+    "ChoosingV2.dc.html": {
+      "h": 900,
+      "title": "Choose & Combine v2 (session restored)",
+      "w": 1440,
+      "x": 0,
+      "y": 23760
+    },
+    "ChoosingV2Cap.dc.html": {
+      "h": 900,
+      "title": "Choose & Combine v2 (8 of 8 selected)",
+      "w": 1440,
+      "x": 1520,
+      "y": 23760
+    },
+    "Cleared.dc.html": {
+      "h": 900,
+      "title": "04 Selection cleared",
+      "w": 1440,
+      "x": 1520,
+      "y": 1020
+    },
+    "HomeNone.dc.html": {
+      "h": 900,
+      "title": "01d Home entry (no cameras found)",
+      "w": 1440,
+      "x": 1520,
+      "y": 11820
+    },
+    "HomeOne.dc.html": {
+      "h": 900,
+      "title": "01a Home entry (1 camera)",
+      "w": 1440,
+      "x": 0,
+      "y": 10800
+    },
+    "HomeThree.dc.html": {
+      "h": 900,
+      "title": "01c Home entry (3 cameras)",
+      "w": 1440,
+      "x": 0,
+      "y": 11820
+    },
+    "HomeTwo.dc.html": {
+      "h": 900,
+      "title": "01b Home entry (2 cameras)",
+      "w": 1440,
+      "x": 1520,
+      "y": 10800
+    },
+    "HomeV7.dc.html": {
+      "h": 900,
+      "title": "Home V.7 (3 online, 6 not connected)",
+      "w": 1440,
+      "x": 0,
+      "y": 17100
+    },
+    "HomeV7None.dc.html": {
+      "h": 900,
+      "title": "Home V.7 (no cameras found)",
+      "w": 1440,
+      "x": 1520,
+      "y": 18120
+    },
+    "HomeV7Offline.dc.html": {
+      "h": 900,
+      "title": "Home V.7 (offline camera selected)",
+      "w": 1440,
+      "x": 0,
+      "y": 18120
+    },
+    "HomeV7Primary.dc.html": {
+      "h": 900,
+      "title": "Home V.7: Target Studio, no camera connected",
+      "w": 1440,
+      "x": 1520,
+      "y": 20760
+    },
+    "HomeV7Resume.dc.html": {
+      "h": 900,
+      "title": "Home V.7: Target Studio, saved session",
+      "w": 1440,
+      "x": 0,
+      "y": 20760
+    },
+    "HomeV7Twelve.dc.html": {
+      "h": 900,
+      "title": "Home V.7 (12 cameras, scrollable)",
+      "w": 1440,
+      "x": 1520,
+      "y": 17100
+    },
+    "Live.dc.html": {
+      "h": 900,
+      "title": "Live view: camera tabs and Selfie-Cam",
+      "w": 1440,
+      "x": 0,
+      "y": 13080
+    },
+    "LiveShots.dc.html": {
+      "h": 900,
+      "title": "Live view: shots and measurements",
+      "w": 1440,
+      "x": 1520,
+      "y": 13080
+    },
+    "Main.dc.html": {
+      "h": 900,
+      "title": "01 Home entry (4 cameras)",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Preview.dc.html": {
+      "h": 900,
+      "title": "01 Nothing selected",
+      "w": 1440,
+      "x": 0,
+      "y": 2400
+    },
+    "PreviewCap.dc.html": {
+      "h": 900,
+      "title": "04 Preview at the cap",
+      "w": 1440,
+      "x": 1520,
+      "y": 3420
+    },
+    "PreviewNone.dc.html": {
+      "h": 900,
+      "title": "Preview & Select: nothing selected",
+      "w": 1440,
+      "x": 0,
+      "y": 25260
+    },
+    "PreviewNoneV2.dc.html": {
+      "h": 900,
+      "title": "Preview & Select: nothing selected (gallery and buttons together)",
+      "w": 1440,
+      "x": 1520,
+      "y": 25260
+    },
+    "PreviewNoneV3.dc.html": {
+      "h": 900,
+      "title": "Preview & Select: nothing selected (desktop preview pane)",
+      "w": 1440,
+      "x": 0,
+      "y": 26280
+    },
+    "PreviewNoneV4.dc.html": {
+      "h": 900,
+      "title": "Preview & Select: nothing selected (desktop, cleaner)",
+      "w": 1440,
+      "x": 1520,
+      "y": 26280
+    },
+    "PreviewSelected.dc.html": {
+      "h": 900,
+      "title": "02 Current item selected",
+      "w": 1440,
+      "x": 1520,
+      "y": 2400
+    },
+    "PreviewUnselected.dc.html": {
+      "h": 900,
+      "title": "03 Current item not selected",
+      "w": 1440,
+      "x": 0,
+      "y": 3420
+    },
+    "PreviewVideo.dc.html": {
+      "h": 900,
+      "title": "05 Whole video",
+      "w": 1440,
+      "x": 0,
+      "y": 4440
+    },
+    "Resume.dc.html": {
+      "h": 900,
+      "title": "02 Resume session",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Review.dc.html": {
+      "h": 900,
+      "title": "01 Confirm the selected set",
+      "w": 1440,
+      "x": 0,
+      "y": 5940
+    },
+    "ReviewConfirm.dc.html": {
+      "h": 900,
+      "title": "Review & Continue: Confirm the selected set (desktop)",
+      "w": 1440,
+      "x": 0,
+      "y": 27540
+    },
+    "ReviewNothing.dc.html": {
+      "h": 900,
+      "title": "03 Nothing remains",
+      "w": 1440,
+      "x": 0,
+      "y": 6960
+    },
+    "ReviewRemove.dc.html": {
+      "h": 900,
+      "title": "02 Remove one item",
+      "w": 1440,
+      "x": 1520,
+      "y": 5940
+    },
+    "ReviewVideo.dc.html": {
+      "h": 900,
+      "title": "04 Review a video",
+      "w": 1440,
+      "x": 1520,
+      "y": 6960
+    },
+    "StatusOptions.dc.html": {
+      "h": 900,
+      "title": "Battery, charging and signal: options",
+      "w": 1440,
+      "x": 0,
+      "y": 19440
+    },
+    "StudioPopup.dc.html": {
+      "h": 900,
+      "title": "Target Studio pop-up (4 items)",
+      "w": 1440,
+      "x": 0,
+      "y": 22260
+    },
+    "StudioPopupEight.dc.html": {
+      "h": 900,
+      "title": "Target Studio pop-up (8 items)",
+      "w": 1440,
+      "x": 1520,
+      "y": 22260
+    },
+    "Workspace.dc.html": {
+      "h": 900,
+      "title": "02 Image ready",
+      "w": 1440,
+      "x": 0,
+      "y": 8460
+    },
+    "WorkspacePanel.dc.html": {
+      "h": 900,
+      "title": "03 Session switcher (C: docked panel)",
+      "w": 1440,
+      "x": 1520,
+      "y": 9480
+    },
+    "WorkspaceRail.dc.html": {
+      "h": 900,
+      "title": "03 Session switcher (B: side rail)",
+      "w": 1440,
+      "x": 0,
+      "y": 9480
+    },
+    "WorkspaceSwitcher.dc.html": {
+      "h": 900,
+      "title": "03 Session switcher (A: dropdown)",
+      "w": 1440,
+      "x": 1520,
+      "y": 8460
+    },
+    "Zones.dc.html": {
+      "h": 900,
+      "title": "Home zones (6 cameras, 1 not connected)",
+      "w": 1440,
+      "x": 0,
+      "y": 14580
+    },
+    "ZonesNone.dc.html": {
+      "h": 900,
+      "title": "Home zones (no cameras found)",
+      "w": 1440,
+      "x": 1520,
+      "y": 14580
+    },
+    "ZonesTwelve.dc.html": {
+      "h": 900,
+      "title": "Home zones (12 cameras, load more)",
+      "w": 1440,
+      "x": 0,
+      "y": 15600
+    },
+    "ChoosingV3.dc.html": {
+      "x": 0,
+      "y": 28860,
+      "w": 1440,
+      "h": 900,
+      "title": "Choose & Combine v3 (library redesign, session restored)"
+    },
+    "ChoosingV3Cap.dc.html": {
+      "x": 1520,
+      "y": 28860,
+      "w": 1440,
+      "h": 900,
+      "title": "Choose & Combine v3 (8 of 8 selected)"
+    },
+    "ChoosingV4.dc.html": {
+      "x": 0,
+      "y": 29880,
+      "w": 1440,
+      "h": 900,
+      "title": "Choose & Combine v4 (numbers in panel only, right-click menu)"
+    },
+    "ChoosingV4Cap.dc.html": {
+      "x": 1520,
+      "y": 29880,
+      "w": 1440,
+      "h": 900,
+      "title": "Choose & Combine v4 (8 of 8 selected)"
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-07T12:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "shape-mrl6qn": {
+      "d": "M0 0 C1.3 4.3 2.7 9 4 13.3",
+      "h": 13.3,
+      "kind": "pen",
+      "w": 4,
+      "x": 640.4,
+      "y": 28714.3
+    },
+    "t1": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Target Studio, Desktop: Entry & Resume",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "t10": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Target Studio on Home: saved session and no camera connected",
+      "w": 240,
+      "x": 0,
+      "y": 20460
+    },
+    "t11": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Target Studio pop-up: resume or start new",
+      "w": 240,
+      "x": 0,
+      "y": 21960
+    },
+    "t12": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Choose & Combine v2: restored session and capacity",
+      "w": 240,
+      "x": 0,
+      "y": 23460
+    },
+    "t13": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Preview & Select (desktop): nothing selected",
+      "w": 240,
+      "x": 0,
+      "y": 24960
+    },
+    "t2": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Target Studio, Desktop: Preview & Select",
+      "w": 240,
+      "x": 0,
+      "y": 2100
+    },
+    "t3": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Target Studio, Desktop: Review & Continue",
+      "w": 240,
+      "x": 0,
+      "y": 5640
+    },
+    "t4": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Target Studio, Desktop: Image ready & Session switcher",
+      "w": 240,
+      "x": 0,
+      "y": 8160
+    },
+    "t5": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Home entry: 1 to 4 cameras",
+      "w": 240,
+      "x": 0,
+      "y": 10500
+    },
+    "t6": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Live view: multi-camera, Selfie-Cam, shots and measurements",
+      "w": 240,
+      "x": 0,
+      "y": 12780
+    },
+    "t7": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Home zones: Live camera and Library",
+      "w": 240,
+      "x": 0,
+      "y": 14280
+    },
+    "t8": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Home V.7: linked cameras and Marksman panel",
+      "w": 240,
+      "x": 0,
+      "y": 16800
+    },
+    "t9": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Battery, charging and signal: design options",
+      "w": 240,
+      "x": 0,
+      "y": 19140
+    },
+    "t14": {
+      "x": 0,
+      "y": 28560,
+      "text": "Choose & Combine v3: new image library",
+      "kind": "title1",
+      "maxW": 2960,
+      "w": 240
+    },
+    "t15": {
+      "x": 0,
+      "y": 29580,
+      "text": "Choose & Combine v4: final library",
+      "kind": "title1",
+      "maxW": 2960,
+      "w": 240
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Resume.dc.html",
+    "Choosing.dc.html",
+    "Cleared.dc.html",
+    "Preview.dc.html",
+    "PreviewSelected.dc.html",
+    "PreviewUnselected.dc.html",
+    "PreviewCap.dc.html",
+    "PreviewVideo.dc.html",
+    "Review.dc.html",
+    "ReviewRemove.dc.html",
+    "ReviewNothing.dc.html",
+    "ReviewVideo.dc.html",
+    "Workspace.dc.html",
+    "WorkspaceSwitcher.dc.html",
+    "WorkspaceRail.dc.html",
+    "WorkspacePanel.dc.html",
+    "HomeOne.dc.html",
+    "HomeTwo.dc.html",
+    "HomeThree.dc.html",
+    "HomeNone.dc.html",
+    "Live.dc.html",
+    "LiveShots.dc.html",
+    "Zones.dc.html",
+    "ZonesNone.dc.html",
+    "ZonesTwelve.dc.html",
+    "HomeV7.dc.html",
+    "HomeV7Twelve.dc.html",
+    "HomeV7Offline.dc.html",
+    "HomeV7None.dc.html",
+    "StatusOptions.dc.html",
+    "HomeV7Resume.dc.html",
+    "HomeV7Primary.dc.html",
+    "StudioPopup.dc.html",
+    "StudioPopupEight.dc.html",
+    "ChoosingV2.dc.html",
+    "ChoosingV2Cap.dc.html",
+    "PreviewNone.dc.html",
+    "PreviewNoneV2.dc.html",
+    "PreviewNoneV3.dc.html",
+    "PreviewNoneV4.dc.html",
+    "ReviewConfirm.dc.html",
+    "ChoosingV3.dc.html",
+    "ChoosingV3Cap.dc.html",
+    "ChoosingV4.dc.html",
+    "ChoosingV4Cap.dc.html"
+  ],
+  "pages": [],
+  "title": "Target Studio Desktop"
+}
